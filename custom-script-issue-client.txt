@@ -345,7 +345,7 @@ frappe.ui.form.on("Issue", {
 	});
 frappe.ui.form.on("Issue", {
 		refresh: function(frm) {
-			if (in_list(["Approvazione Analisi", "Approvazione Analisi RPROD", "Approvazione Analisi CS", "Approvazione Analisi Magazzino", "Approvazione Analisi PKG", "Approvazione Analisi QA", "Trattamento NC", "Richiesta Verifica Importi", "Approvazione NDC Fabrizio", "Approvazione NDC Renzo", "Verifica Importi", "Emissione NDC", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
+			if (in_list(["Approvazione Analisi", "Trattamento NC", "Richiesta Verifica Importi", "Approvazione NDC Fabrizio", "Approvazione NDC Renzo", "Verifica Importi", "Emissione NDC", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
 				if (frm.doc.capoturno.length > "0") {
 					frm.set_df_property("capoturno", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
@@ -563,7 +563,7 @@ frappe.ui.form.on("Issue", "before_save", function(frm) {
 //
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
-			if (in_list(["O Approvazione Analisi", "O Approvazione Analisi RPROD", "O Approvazione Analisi CS", "O Approvazione Analisi Magazzino", "O Approvazione Analisi PKG", "O Approvazione Analisi QA", "O Trattamento NC", "O Richiesta Verifica Importi", "O NDC DIR COMMERCIALE", "O NDC DIR AMMINISTRATIVO", "O Verifica Importi", "O Emissione NDC", "O Comunicazione al Cliente"], frm.doc.workflow_nc)) {
+			if (in_list(["O Approvazione Analisi", "O Trattamento NC", "O Richiesta Verifica Importi", "O NDC DIR COMMERCIALE", "O NDC DIR AMMINISTRATIVO", "O Verifica Importi", "O Emissione NDC", "O Comunicazione al Cliente"], frm.doc.workflow_nc)) {
 				if (frm.doc.capoturno.length > "0") {
 					frm.set_df_property("capoturno", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
