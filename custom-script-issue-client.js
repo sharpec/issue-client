@@ -316,7 +316,7 @@ frappe.ui.form.on("Issue", {
 // BLOCCO CAMPI SOLA LETTURA
 //
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (frm.doc.subject.length > "0") {
 				frm.set_df_property("subject", "read_only", frm.doc.__islocal ? 0 : 1);
 			}
@@ -344,7 +344,7 @@ frappe.ui.form.on("Issue", {
 		}
 	});
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (in_list(["Approvazione Analisi", "Approvazione Analisi RPROD", "Approvazione Analisi CS", "Approvazione Analisi Magazzino", "Approvazione Analisi PKG", "Approvazione Analisi QA", "Trattamento NC", "Richiesta Verifica Importi", "Approvazione NDC Fabrizio", "Approvazione NDC Renzo", "Verifica Importi", "Emissione NDC", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
 				if (frm.doc.capoturno.length > "0") {
 					frm.set_df_property("capoturno", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -365,7 +365,7 @@ frappe.ui.form.on("Issue", {
 		}
 	});
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (in_list(["Emissione NDC", "NDC Generata", "Approvazione NDC Fabrizio", "Approvazione NDC Renzo", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
 				if (frm.doc.fattura.length > "0") {
 					frm.set_df_property("fattura", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -380,7 +380,7 @@ frappe.ui.form.on("Issue", {
 		}
 	});
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (in_list(["NDC Generata", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
 				if (frm.doc.numero_nota_credito.length > "0") {
 					frm.set_df_property("numero_nota_credito", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -389,7 +389,7 @@ frappe.ui.form.on("Issue", {
 		}
 	});
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (frm.doc.naming_series.substr(0,3)== "NCR") {
 				if (in_list(["NC Chiusa"], frm.doc.workflow_nc)) {
 					if (frm.doc.data_invio_a_cliente.length > "0") {
@@ -404,7 +404,7 @@ frappe.ui.form.on("Issue", {
 	});
 
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (in_list(["Analisi NCF", "NCF Chiusa", "Da Rilavorare"], frm.doc.workflow_nc)) {
 				frm.set_df_property("data_rilevazione", "read_only", frm.doc.__islocal ? 0 : 1);
 				frm.set_df_property("responsabile_apertura_nc", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -419,7 +419,7 @@ frappe.ui.form.on("Issue", {
 		}
 	});
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (frm.doc.naming_series.substr(0,3)== "NCF") {
 				if (in_list(["NCF Chiusa"], frm.doc.workflow_nc)) {
 					frm.set_df_property("proposta_di_trattamento", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -613,7 +613,7 @@ frappe.ui.form.on("Issue", {
 		}
 	});
 frappe.ui.form.on("Issue", {
-		refresh: function(frm) {
+		onload: function(frm) {
 			if (in_list(["O Analisi NCF", "O Da Rilavorare"], frm.doc.workflow_nc)) {
 				frm.set_df_property("data_rilevazione", "read_only", frm.doc.__islocal ? 0 : 1);
 				frm.set_df_property("responsabile_apertura_nc", "read_only", frm.doc.__islocal ? 0 : 1);
