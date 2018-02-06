@@ -317,27 +317,27 @@ frappe.ui.form.on("Issue", {
 //
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
-			if (frm.doc.subject.length > "0") {
+			if (frm.doc.subject != null) {
 				frm.set_df_property("subject", "read_only", frm.doc.__islocal ? 0 : 1);
 			}
 			if (frm.doc.naming_series.substr(0,3)== "NCR") {
-				if (frm.doc.customer.length > "0") {
+				if (frm.doc.customer != null) {
 					frm.set_df_property("customer", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
 			if (frm.doc.naming_series.substr(0,3)== "NCF") {
-				if (frm.doc.fornitore.length > "0") {
+				if (frm.doc.fornitore != null) {
 					frm.set_df_property("fornitore", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
 			if (frm.doc.naming_series.substr(0,3)== "NCR") {
-				if (frm.doc.codice_prodotto.length > "0") {
+				if (frm.doc.codice_prodotto != null) {
 					frm.set_df_property("codice_prodotto", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.rif_doc.length > "0") {
+				if (frm.doc.rif_doc != null) {
 					frm.set_df_property("rif_doc", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.rif_nc_cliente.length > "0") {
+				if (frm.doc.rif_nc_cliente != null) {
 					frm.set_df_property("rif_nc_cliente", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
@@ -346,19 +346,19 @@ frappe.ui.form.on("Issue", {
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (in_list(["Approvazione Analisi", "Approvazione Analisi RPROD", "Approvazione Analisi CS", "Approvazione Analisi Magazzino", "Approvazione Analisi PKG", "Approvazione Analisi QA", "Trattamento NC", "Richiesta Verifica Importi", "Approvazione NDC Fabrizio", "Approvazione NDC Renzo", "Verifica Importi", "Emissione NDC", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
-				if (frm.doc.capoturno.length > "0") {
+				if (frm.doc.capoturno != null) {
 					frm.set_df_property("capoturno", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.operatore.length > "0") {
+				if (frm.doc.operatore != null) {
 					frm.set_df_property("operatore", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.causa.length > "0") {
+				if (frm.doc.causa != null) {
 					frm.set_df_property("causa", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.data_produzione.length > "0") {
+				if (frm.doc.data_produzione != null) {
 					frm.set_df_property("data_produzione", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.descrizione_analisi.length > "0") {
+				if (frm.doc.descrizione_analisi != null) {
 					frm.set_df_property("descrizione_analisi", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
@@ -367,13 +367,13 @@ frappe.ui.form.on("Issue", {
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (in_list(["Emissione NDC", "NDC Generata", "Approvazione NDC Fabrizio", "Approvazione NDC Renzo", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
-				if (frm.doc.fattura.length > "0") {
+				if (frm.doc.fattura != null) {
 					frm.set_df_property("fattura", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.ddt.length > "0") {
+				if (frm.doc.ddt != null) {
 					frm.set_df_property("ddt", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				//if (frm.doc.importo_nota_credito.length > "0") {
+				//if (frm.doc.importo_nota_credito != null) {
 					frm.set_df_property("importo_nota_credito", "read_only", frm.doc.__islocal ? 0 : 1);
 				//}
 			}
@@ -382,7 +382,7 @@ frappe.ui.form.on("Issue", {
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (in_list(["NDC Generata", "Comunicazione al Cliente", "NC Chiusa"], frm.doc.workflow_nc)) {
-				if (frm.doc.numero_nota_credito.length > "0") {
+				if (frm.doc.numero_nota_credito != null) {
 					frm.set_df_property("numero_nota_credito", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
@@ -392,10 +392,10 @@ frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (frm.doc.naming_series.substr(0,3)== "NCR") {
 				if (in_list(["NC Chiusa"], frm.doc.workflow_nc)) {
-					if (frm.doc.data_invio_a_cliente.length > "0") {
+					if (frm.doc.data_invio_a_cliente != null) {
 						frm.set_df_property("data_invio_a_cliente", "read_only", frm.doc.__islocal ? 0 : 1);
 					}
-					if (frm.doc.conferma_del_customer_service_della_nota_credito.length > "0") {
+					if (frm.doc.conferma_del_customer_service_della_nota_credito != null) {
 						frm.set_df_property("conferma_del_customer_service_della_nota_credito", "read_only", frm.doc.__islocal ? 0 : 1);
 					}
 				}
@@ -567,22 +567,22 @@ frappe.ui.form.on("Issue", "before_save", function(frm) {
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (in_list(["O Approvazione Analisi", "O Approvazione Analisi RPROD", "O Approvazione Analisi CS", "O Approvazione Analisi Magazzino", "O Approvazione Analisi PKG", "O Approvazione Analisi QA", "O Trattamento NC", "O Richiesta Verifica Importi", "O NDC DIR COMMERCIALE", "O NDC DIR AMMINISTRATIVO", "O Verifica Importi", "O Emissione NDC", "O Comunicazione al Cliente"], frm.doc.workflow_nc)) {
-				if (frm.doc.capoturno.length > "0") {
+				if (frm.doc.capoturno != null) {
 					frm.set_df_property("capoturno", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.operatore.length > "0") {
+				if (frm.doc.operatore != null) {
 					frm.set_df_property("operatore", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.causa.length > "0") {
+				if (frm.doc.causa != null) {
 					frm.set_df_property("causa", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.descrizione_analisi.length > "0") {
+				if (frm.doc.descrizione_analisi != null) {
 					frm.set_df_property("descrizione_analisi", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.data_produzione.length > "0") {
+				if (frm.doc.data_produzione != null) {
 					frm.set_df_property("data_produzione", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.descrizione_analisi.length > "0") {
+				if (frm.doc.descrizione_analisi != null) {
 					frm.set_df_property("descrizione_analisi", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
@@ -591,13 +591,13 @@ frappe.ui.form.on("Issue", {
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (in_list(["O Emissione NDC", "O NDC Generata", "O NDC DIR COMMERCIALE", "O NDC DIR AMMINISTRATIVO", "O Comunicazione al Cliente"], frm.doc.workflow_nc)) {
-				if (frm.doc.fattura.length > "0") {
+				if (frm.doc.fattura != null) {
 					frm.set_df_property("fattura", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				if (frm.doc.ddt.length > "0") {
+				if (frm.doc.ddt != null) {
 					frm.set_df_property("ddt", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
-				//if (frm.doc.importo_nota_credito.length > "0") {
+				//if (frm.doc.importo_nota_credito != null) {
 					frm.set_df_property("importo_nota_credito", "read_only", frm.doc.__islocal ? 0 : 1);
 				//}
 			}
@@ -606,7 +606,7 @@ frappe.ui.form.on("Issue", {
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (in_list(["O NDC Generata", "O Comunicazione al Cliente"], frm.doc.workflow_nc)) {
-				if (frm.doc.numero_nota_credito.length > "0") {
+				if (frm.doc.numero_nota_credito != null) {
 					frm.set_df_property("numero_nota_credito", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
