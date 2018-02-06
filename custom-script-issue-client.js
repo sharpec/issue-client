@@ -358,6 +358,9 @@ frappe.ui.form.on("Issue", {
 				if (frm.doc.data_produzione.length > "0") {
 					frm.set_df_property("data_produzione", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
+				if (frm.doc.descrizione_analisi.length > "0") {
+					frm.set_df_property("descrizione_analisi", "read_only", frm.doc.__islocal ? 0 : 1);
+				}
 			}
 		}
 	});
@@ -578,6 +581,9 @@ frappe.ui.form.on("Issue", {
 				}
 				if (frm.doc.data_produzione.length > "0") {
 					frm.set_df_property("data_produzione", "read_only", frm.doc.__islocal ? 0 : 1);
+				}
+				if (frm.doc.descrizione_analisi.length > "0") {
+					frm.set_df_property("descrizione_analisi", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
 		}
