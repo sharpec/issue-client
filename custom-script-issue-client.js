@@ -242,6 +242,14 @@ frappe.ui.form.on("Issue", {
 			}
 		}
 	});
+frappe.ui.form.on("Issue", {
+		refresh: function(frm) {
+			if (frm.doc.naming_series.substr(0,3)== "NCS") {
+				frm.toggle_reqd("emessa_da", frm.doc.workflow_nc== "NCS Aperta");
+				frm.toggle_reqd("descrizione_ncs", frm.doc.workflow_nc== "NCS Aperta");
+			}
+		}
+	});
 frappe.ui.form.on("Issue", "before_save", function(frm) {
 	if (frm.doc.naming_series.substr(0,3)== "NCF") {
 		if (frm.doc.azione_di_contenimento== "Altro") {
@@ -431,7 +439,7 @@ frappe.ui.form.on("Issue", {
 		}
 	});
 
-	
+
 /// ORMA
 
 //
