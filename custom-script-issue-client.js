@@ -1,3 +1,9 @@
+// HIDE CLOSE BUTTON IN ISSUE
+frappe.ui.form.on("Issue", {
+  refresh: function(frm) {
+    frm.remove_custom_button(__('Close'));
+  }
+});
 //
 // SWITCH AZIENDA TEXOL
 //
