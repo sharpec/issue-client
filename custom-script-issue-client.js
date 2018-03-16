@@ -342,6 +342,9 @@ frappe.ui.form.on("Issue", {
 			if (frm.doc.subject != null) {
 				frm.set_df_property("subject", "read_only", frm.doc.__islocal ? 0 : 1);
 			}
+      if (frm.doc.subject != null) {
+				frm.set_df_property("description", "read_only", frm.doc.__islocal ? 0 : 1);
+			}
 			if (frm.doc.naming_series.substr(0,3)== "NCR") {
 				if (frm.doc.customer != null) {
 					frm.set_df_property("customer", "read_only", frm.doc.__islocal ? 0 : 1);
