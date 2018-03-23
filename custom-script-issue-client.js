@@ -724,3 +724,29 @@ frappe.ui.form.on("Issue", {
     			}
     		}
     	});
+frappe.ui.form.on("Issue", "validate", function(frm) {
+if (frm.doc.naming_series.substr(0,3)== "NCS") {
+if (frm.doc.da_gestire_entro_il < get_today()) {
+msgprint(__("Data nel passato non valida"));
+validated = false;
+}
+}
+});
+
+//frappe.ui.form.on("Issue", {
+//  accettazione_proposta: function(frm) {
+    // this function is called when the value of accettazione_proposta is changed.
+//    frm.timeline.insert_comment("Submitted", "ha modificato l'accettazione della proposta correttiva");
+//  }
+//});
+//frappe.ui.form.on("Issue", "validate", function(frm) {
+//if (frm.doc.naming_series.substr(0,3)== "NCS") {
+//if (get_today() > frm.doc.da_gestire_entro_il) {
+//frm.set_value("status", "Overdue");
+//}
+//}
+//});
+
+//frappe.ui.form.on('Sales Invoice', 'credit_days', function(frm){
+//frm.set_value("due_date", frappe.datetime.add_days(frappe.datetime.nowdate(), frm.doc.credit_days));
+//})
