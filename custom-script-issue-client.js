@@ -2,6 +2,7 @@
 frappe.ui.form.on("Issue", {
   refresh: function(frm) {
     frm.remove_custom_button(__('Close'));
+    frm.remove_custom_button(__('Reopen'));
   }
 });
 //
