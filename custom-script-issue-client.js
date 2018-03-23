@@ -459,7 +459,7 @@ frappe.ui.form.on("Issue", {
   frappe.ui.form.on("Issue", {
   		onload: function(frm) {
   			if (frm.doc.naming_series.substr(0,3)== "NCS") {
-  				if (in_list(["Gestione NCS", "Approvazione NCS", "Trattamento NCS", "NCS RPROD", "NCS Magazzino", "NCS QA", "NCS Progettazione", "NCS Sales", "NCS Amministrazione", "NCS Acquisti", "NCS Laboratorio", "NCS Packaging", "NCS Manutenzione", "NCS RnD", "NCS IT", "NCS HR", "NCS Capoturno"], frm.doc.workflow_nc)) {
+  				if (in_list(["Gestione NCS", "Approvazione NCS", "Trattamento NCS", "NCS RPROD", "NCS Magazzino", "NCS QA", "NCS Progettazione", "NCS Sales", "NCS Amministrazione", "NCS Acquisti", "NCS Laboratorio", "NCS Packaging", "NCS Manutenzione", "NCS RnD", "NCS IT", "NCS HR", "NCS Capoturno", "NCS Chiusa"], frm.doc.workflow_nc)) {
   					frm.set_df_property("emessa_da", "read_only", frm.doc.__islocal ? 0 : 1);
   					frm.set_df_property("riferimento_documentale", "read_only", frm.doc.__islocal ? 0 : 1);
   					frm.set_df_property("descrizione_ncs", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -474,7 +474,7 @@ frappe.ui.form.on("Issue", {
     frappe.ui.form.on("Issue", {
     		onload: function(frm) {
     			if (frm.doc.naming_series.substr(0,3)== "NCS") {
-    				if (in_list(["Approvazione NCS", "Trattamento NCS", "NCS RPROD", "NCS Magazzino", "NCS QA", "NCS Progettazione", "NCS Sales", "NCS Amministrazione", "NCS Acquisti", "NCS Laboratorio", "NCS Packaging", "NCS Manutenzione", "NCS RnD", "NCS IT", "NCS HR", "NCS Capoturno"], frm.doc.workflow_nc)) {
+    				if (in_list(["Approvazione NCS", "Trattamento NCS", "NCS RPROD", "NCS Magazzino", "NCS QA", "NCS Progettazione", "NCS Sales", "NCS Amministrazione", "NCS Acquisti", "NCS Laboratorio", "NCS Packaging", "NCS Manutenzione", "NCS RnD", "NCS IT", "NCS HR", "NCS Capoturno", "NCS Chiusa"], frm.doc.workflow_nc)) {
     					frm.set_df_property("trattamento_della_ncs", "read_only", frm.doc.__islocal ? 0 : 1);
     					frm.set_df_property("ncs_in_gestione_a", "read_only", frm.doc.__islocal ? 0 : 1);
     					frm.set_df_property("da_gestire_entro_il", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -699,7 +699,7 @@ frappe.ui.form.on("Issue", {
   frappe.ui.form.on("Issue", {
   		onload: function(frm) {
   			if (frm.doc.naming_series.substr(0,3)== "NCS") {
-  				if (in_list(["O Gestione NCS", "O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno"], frm.doc.workflow_nc)) {
+  				if (in_list(["O Gestione NCS", "O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno", "NCS Chiusa"], frm.doc.workflow_nc)) {
   					frm.set_df_property("emessa_da", "read_only", frm.doc.__islocal ? 0 : 1);
   					frm.set_df_property("riferimento_documentale", "read_only", frm.doc.__islocal ? 0 : 1);
   					frm.set_df_property("descrizione_ncs", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -714,7 +714,7 @@ frappe.ui.form.on("Issue", {
     frappe.ui.form.on("Issue", {
     		onload: function(frm) {
     			if (frm.doc.naming_series.substr(0,3)== "NCS") {
-    				if (in_list(["O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno"], frm.doc.workflow_nc)) {
+    				if (in_list(["O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno", "NCS Chiusa"], frm.doc.workflow_nc)) {
     					frm.set_df_property("trattamento_della_ncs", "read_only", frm.doc.__islocal ? 0 : 1);
     					frm.set_df_property("ncs_in_gestione_a", "read_only", frm.doc.__islocal ? 0 : 1);
     					frm.set_df_property("da_gestire_entro_il", "read_only", frm.doc.__islocal ? 0 : 1);
