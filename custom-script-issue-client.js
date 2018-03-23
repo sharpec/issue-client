@@ -430,7 +430,7 @@ frappe.ui.form.on("Issue", {
 	});
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
-			if (in_list(["Analisi NCF", "NCF Chiusa", "Da Rilavorare"], frm.doc.workflow_nc)) {
+			if (in_list(["Analisi NCF", "NCF Chiusa", "Da Rendere", "Da Rilavorare", "Da Smaltire"], frm.doc.workflow_nc)) {
 				frm.set_df_property("data_rilevazione", "read_only", frm.doc.__islocal ? 0 : 1);
 				frm.set_df_property("responsabile_apertura_nc", "read_only", frm.doc.__islocal ? 0 : 1);
 				frm.set_df_property("codice_prodotto_fornitore", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -446,16 +446,27 @@ frappe.ui.form.on("Issue", {
 frappe.ui.form.on("Issue", {
 		onload: function(frm) {
 			if (frm.doc.naming_series.substr(0,3)== "NCF") {
-				if (in_list(["NCF Chiusa"], frm.doc.workflow_nc)) {
+				if (in_list(["NCF Chiusa", "Da Rendere", "Da Rilavorare", "Da Smaltire"], frm.doc.workflow_nc)) {
 					frm.set_df_property("proposta_di_trattamento", "read_only", frm.doc.__islocal ? 0 : 1);
 					frm.set_df_property("descrizione_proposta_di_trattamento", "read_only", frm.doc.__islocal ? 0 : 1);
-					frm.set_df_property("nota_credito_fornitore", "read_only", frm.doc.__islocal ? 0 : 1);
-					frm.set_df_property("importo_nota_credito_fornitore", "read_only", frm.doc.__islocal ? 0 : 1);
 				}
 			}
 		}
 	});
-
+  frappe.ui.form.on("Issue", {
+  		onload: function(frm) {
+  			if (frm.doc.naming_series.substr(0,3)== "NCF") {
+  				if (in_list(["NCF Chiusa"], frm.doc.workflow_nc)) {
+  					frm.set_df_property("nota_credito_fornitore", "read_only", frm.doc.__islocal ? 0 : 1);
+  					frm.set_df_property("importo_nota_credito_fornitore", "read_only", frm.doc.__islocal ? 0 : 1);
+					  frm.set_df_property("usato_su_ordine_di_produzione", "read_only", frm.doc.__islocal ? 0 : 1);
+  					frm.set_df_property("ddt_in_uscita_materiale_reso", "read_only", frm.doc.__islocal ? 0 : 1);
+  					frm.set_df_property("data_rimozione_da_area_nc", "read_only", frm.doc.__islocal ? 0 : 1);
+  					frm.set_df_property("reparto", "read_only", frm.doc.__islocal ? 0 : 1);
+				}
+			}
+		}
+  });
   frappe.ui.form.on("Issue", {
   		onload: function(frm) {
   			if (frm.doc.naming_series.substr(0,3)== "NCS") {
@@ -699,7 +710,7 @@ frappe.ui.form.on("Issue", {
   frappe.ui.form.on("Issue", {
   		onload: function(frm) {
   			if (frm.doc.naming_series.substr(0,3)== "NCS") {
-  				if (in_list(["O Gestione NCS", "O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno", "NCS Chiusa"], frm.doc.workflow_nc)) {
+  				if (in_list(["O Gestione NCS", "O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno", "O NCS Chiusa"], frm.doc.workflow_nc)) {
   					frm.set_df_property("emessa_da", "read_only", frm.doc.__islocal ? 0 : 1);
   					frm.set_df_property("riferimento_documentale", "read_only", frm.doc.__islocal ? 0 : 1);
   					frm.set_df_property("descrizione_ncs", "read_only", frm.doc.__islocal ? 0 : 1);
@@ -714,7 +725,7 @@ frappe.ui.form.on("Issue", {
     frappe.ui.form.on("Issue", {
     		onload: function(frm) {
     			if (frm.doc.naming_series.substr(0,3)== "NCS") {
-    				if (in_list(["O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno", "NCS Chiusa"], frm.doc.workflow_nc)) {
+    				if (in_list(["O Approvazione NCS", "O Trattamento NCS", "O NCS RPROD", "O NCS Magazzino", "O NCS QA", "O NCS Progettazione", "O NCS Sales", "O NCS Amministrazione", "O NCS Acquisti", "O NCS Laboratorio", "O NCS Packaging", "O NCS Manutenzione", "O NCS RnD", "O NCS IT", "O NCS HR", "O NCS Capoturno", "O NCS Chiusa"], frm.doc.workflow_nc)) {
     					frm.set_df_property("trattamento_della_ncs", "read_only", frm.doc.__islocal ? 0 : 1);
     					frm.set_df_property("ncs_in_gestione_a", "read_only", frm.doc.__islocal ? 0 : 1);
     					frm.set_df_property("da_gestire_entro_il", "read_only", frm.doc.__islocal ? 0 : 1);
